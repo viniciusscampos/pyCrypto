@@ -1,1 +1,0 @@
-A criptografia de chave pública se garante, principalmente, devido a dificuldade de fatorar inteiros, de logaritmos discretos, etc.
