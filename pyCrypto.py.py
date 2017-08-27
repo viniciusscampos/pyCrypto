@@ -1,0 +1,96 @@
+
+# coding: utf-8
+
+# Implementação python para encriptar e decriptar textos/arquivos utilizando o algoritmo DES implementado pela biblioteca pyDES.
+
+# Instalando e importando os pacotes necessários:
+
+# In[1]:
+
+get_ipython().system('pip install pydes')
+
+import pyDes
+import secrets
+
+
+# Implementação da função de encriptação.
+
+# In[2]:
+
+def encrypt(file_path, output_path, key):
+    """Recebe como argumento o path de um arquivo e escreve o conteúdo encriptado no arquivo especificado no argumento."""
+    # Abre o arquivo.
+    file = open(file_path, 'r')
+    # Le o conteúdo do arquivo.
+    file_content = file.read()
+    # Fecha o arquivo.
+    file.close()
+    # Inicializando a classe que implementa o algoritmo DES.
+    des = pyDes.des(key, pyDes.CBC, "\0\0\0\0\0\0\0\0", pad=None, padmode=pyDes.PAD_PKCS5)
+    # Conteúdo encriptado com encode especificado como sendo utf-8.
+    encrypted_content = des.encrypt(file_content.encode("utf-8"))
+    # Abre o arquivo no qual deseja-se armazenar o conteúdo encriptado.
+    output_file = open(output_path, 'wb')
+    # Escreve o conteúdo encriptado no arquivo de saída.
+    output_file.write(encrypted_content)
+    # Fecha o arquivo.
+    output_file.close()
+
+
+# Implementação do função de decriptação
+
+# In[3]:
+
+def decrypt(file_path, output_path, key):
+    """Recebe como argumento o path do arquivo cujo conteúdo está encriptado e 
+    escreve o conteúdo decriptado no arquivo especificado no argumento."""
+    # Abre o arquivo.
+    file = open(file_path, 'rb')
+    # Le o conteúdo do arquivo.
+    file_content = file.read()
+    # Fecha o arquivo.
+    file.close()    
+    # Inicializando a classe que implementa o algoritmo DES.
+    des = pyDes.des(key, pyDes.CBC, "\0\0\0\0\0\0\0\0", pad=None, padmode=pyDes.PAD_PKCS5)
+    # Decripta o conteúdo do arquivo fornecido especificando que o decode deve ser utf-8.
+    decrypted_content = des.decrypt(file_content).decode("utf-8")
+    # Abre o arquivo no qual deseja-se armazenar o conteúdo encriptado.
+    output_file = open(output_path, 'w')
+    # Escreve o conteúdo encriptado no arquivo de saída.
+    output_file.write(str(decrypted_content))
+    # Fecha o arquivo.
+    output_file.close()
+
+
+# Especifica um conjunto de variáveis que serão utilizados para as baterias de testes abaixo.
+
+# In[4]:
+
+# Cria a chave que será utilizada contendo 8 bits (exigência da biblioteca pyDES).
+key = secrets.token_bytes(8)
+# Path do arquivo que deverá ser encriptado.
+initial_file_path = "C:\\Users\\vinic\\Documents\\Projects\\pyCrypto\\test.txt"
+# Path do arquivo encriptado.
+encrypted_file_path = "C:\\Users\\vinic\\Documents\\Projects\\pyCrypto\\encrypted.txt"
+# Path do arquivo decriptado.
+decrypted_file_path = "C:\\Users\\vinic\\Documents\\Projects\\pyCrypto\\decrypted.txt"
+
+
+# Testes a serem executados:
+
+# In[5]:
+
+# Encriptação do arquivo.
+encrypt(initial_file_path, encrypted_file_path, key)
+
+# Decriptação do arquivo.
+decrypt(encrypted_file_path, decrypted_file_path, key)
+
+# Lê conteudo do arquivo inicial.
+initial_file_content = open(initial_file_path, 'r').read()
+
+# Lê conteudo do arquivo decriptado.
+decrypted_file_content = open(decrypted_file_path, 'r').read()
+
+assert initial_file_content == decrypted_file_content
+
