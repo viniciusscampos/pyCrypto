@@ -1,9 +1,13 @@
 
 # coding: utf-8
 
-# Implementação python para encriptar e decriptar textos/arquivos utilizando o algoritmo DES implementado pela biblioteca pyDES.
+# ## Universidade Federal do Rio de Janeiro (UFRJ)
+# ### Disciplina: EEL840
+# ### Vinícius Silva Campos DRE: 113023327
 
-# Instalando e importando os pacotes necessários:
+# ## Implementação em python para encriptar e decriptar textos planos utilizando o algoritmo DES implementado pela biblioteca pyDES.
+
+# ### Instalando e importando os pacotes necessários:
 
 # In[1]:
 
@@ -13,7 +17,7 @@ import pyDes
 import secrets
 
 
-# Implementação da função de encriptação.
+# ### Implementação da função de encriptação.
 
 # In[2]:
 
@@ -37,7 +41,7 @@ def encrypt(file_path, output_path, key):
     output_file.close()
 
 
-# Implementação do função de decriptação
+# ### Implementação do função de decriptação
 
 # In[3]:
 
@@ -62,21 +66,21 @@ def decrypt(file_path, output_path, key):
     output_file.close()
 
 
-# Especifica um conjunto de variáveis que serão utilizados para as baterias de testes abaixo.
+# ### Especificação do conjunto de variáveis que serão utilizados para os testes abaixo.
 
 # In[4]:
 
 # Cria a chave que será utilizada contendo 8 bits (exigência da biblioteca pyDES).
 key = secrets.token_bytes(8)
 # Path do arquivo que deverá ser encriptado.
-initial_file_path = "C:\\Users\\vinic\\Documents\\Projects\\pyCrypto\\test.txt"
+initial_file_path = "C:\\Users\\vinic\\Documents\\Projects\\pyCrypto\\resumo-artigo.txt"
 # Path do arquivo encriptado.
 encrypted_file_path = "C:\\Users\\vinic\\Documents\\Projects\\pyCrypto\\encrypted.txt"
 # Path do arquivo decriptado.
 decrypted_file_path = "C:\\Users\\vinic\\Documents\\Projects\\pyCrypto\\decrypted.txt"
 
 
-# Testes a serem executados:
+# ### Testes:
 
 # In[5]:
 
