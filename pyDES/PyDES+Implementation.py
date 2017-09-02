@@ -9,7 +9,7 @@
 
 # ### Instalando e importando os pacotes necessários:
 
-# In[ ]:
+# In[1]:
 
 get_ipython().system('pip install pydes')
 
@@ -19,7 +19,7 @@ import secrets
 
 # ### Implementação da função de encriptação.
 
-# In[ ]:
+# In[2]:
 
 def encrypt(file_path, output_path, key):
     """Recebe como argumento o path de um arquivo e escreve o conteúdo encriptado no arquivo especificado no argumento."""
@@ -43,7 +43,7 @@ def encrypt(file_path, output_path, key):
 
 # ### Implementação do função de decriptação
 
-# In[ ]:
+# In[3]:
 
 def decrypt(file_path, output_path, key):
     """Recebe como argumento o path do arquivo cujo conteúdo está encriptado e 
@@ -68,21 +68,21 @@ def decrypt(file_path, output_path, key):
 
 # ### Especificação do conjunto de variáveis que serão utilizados para os testes abaixo.
 
-# In[ ]:
+# In[4]:
 
 # Cria a chave que será utilizada contendo 8 bits (exigência da biblioteca pyDES).
 key = secrets.token_bytes(8)
 # Path do arquivo que deverá ser encriptado.
-initial_file_path = "C:\\Users\\vinic\\Documents\\Projects\\pyCrypto\\resumo-artigo.txt"
+initial_file_path = "resumo-artigo.txt"
 # Path do arquivo encriptado.
-encrypted_file_path = "C:\\Users\\vinic\\Documents\\Projects\\pyCrypto\\encrypted.txt"
+encrypted_file_path = "encrypted.txt"
 # Path do arquivo decriptado.
-decrypted_file_path = "C:\\Users\\vinic\\Documents\\Projects\\pyCrypto\\decrypted.txt"
+decrypted_file_path = "decrypted.txt"
 
 
 # ### Testes:
 
-# In[ ]:
+# In[5]:
 
 # Encriptação do arquivo.
 encrypt(initial_file_path, encrypted_file_path, key)
