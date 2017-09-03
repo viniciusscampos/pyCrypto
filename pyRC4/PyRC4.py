@@ -32,7 +32,6 @@ def encrypt(file_path, output_path, key, nonce):
     # Cria a cifra que será utilizada.
     cipher = ARC4.new(nonce + key)
     # Conteúdo encriptado com encode especificado como sendo utf-8.
-    #encrypted_content = nonce + cipher.encrypt(file_content.encode("utf-8"))    
     encrypted_content = cipher.encrypt(file_content.encode("utf-8"))    
     # Abre o arquivo no qual deseja-se armazenar o conteúdo encriptado.
     output_file = open(output_path, 'wb')

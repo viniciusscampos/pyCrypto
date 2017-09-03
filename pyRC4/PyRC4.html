@@ -11857,7 +11857,6 @@ div#notebook {
     <span class="c1"># Cria a cifra que será utilizada.</span>
     <span class="n">cipher</span> <span class="o">=</span> <span class="n">ARC4</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">nonce</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span>
     <span class="c1"># Conteúdo encriptado com encode especificado como sendo utf-8.</span>
-    <span class="c1">#encrypted_content = nonce + cipher.encrypt(file_content.encode(&quot;utf-8&quot;))    </span>
     <span class="n">encrypted_content</span> <span class="o">=</span> <span class="n">cipher</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">file_content</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>    
     <span class="c1"># Abre o arquivo no qual deseja-se armazenar o conteúdo encriptado.</span>
     <span class="n">output_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
